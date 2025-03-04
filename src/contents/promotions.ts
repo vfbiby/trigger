@@ -71,12 +71,35 @@ function interceptAjax() {
 }
 
 function sendResponseBack(type: string, event) {
-  log(event.target.responseText)
-  window.dispatchEvent(
-    new CustomEvent("FROM_INJECTED", {
-      detail: {type, responseText: event.target.responseText}
-    })
-  )
+  const responseText = event.target.responseText;
+  log(responseText);
+  
+  try {
+    const data = JSON.parse(responseText);
+    // 存储完整的API响应数据并添加类型
+    const storageData = {
+      timestamp: Date.now(),
+      expires: Date.now() + 3600000, // 1小时有效期
+      data: data?.data || null
+    };
+    
+    if (data?.data?.promotions) {
+      localStorage.setItem('promotions_v2', JSON.stringify(storageData));
+      window.dispatchEvent(
+        new CustomEvent("FROM_INJECTED", {
+          detail: {
+            type,
+            responseText,
+            data: data.data.promotions
+          }
+        })
+      );
+    }
+  } catch (e) {
+    console.error('处理促销数据失败:', e);
+    // 清除无效数据
+    localStorage.removeItem('promotions_v2');
+  }
 }
 
 

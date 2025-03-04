@@ -1,0 +1,994 @@
+{
+    "st": 0,
+    "code": 0,
+    "msg": "",
+    "extra": {
+        "log_id": "2025030503363125B004DB54984D9BCA1A",
+        "now": 1741116992000
+    },
+    "data": {
+        "promotions": [
+            {
+                "promotion_id": "3704967819658673569",
+                "product_id": "3704965330213405138",
+                "title": "美式复古阔腿牛仔裤女2024新款水洗裂痕宽松不贴腿直筒微喇拖地裤",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/kQrOdkQo_m_89c051fb3439991fb60067f564c60a47_sx_725603_www800-800",
+                "stock_num": 60394,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "7933",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 60394,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "184464493",
+                "tag_list": [
+                    {
+                        "type": 7
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 5980,
+                        "integer": "59",
+                        "decimal": "8",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 5980,
+                        "integer": "59",
+                        "decimal": "8",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": true,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3730796602185630343",
+                "product_id": "3730031373617070219",
+                "title": "CKKOR美式学院风拼接假两件春节打底衫女春秋新款修身收腰长袖t恤",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/jpeg_m_3c6592c0cd2fc559852960fe556b9a76_sx_758128_www1080-1080",
+                "stock_num": 15757,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 15757,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "89605042",
+                "tag_list": [
+                    {
+                        "type": 7
+                    },
+                    {
+                        "type": 18
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 3990,
+                        "integer": "39",
+                        "decimal": "9",
+                        "suffix": ""
+                    },
+                    "price_text": "券后价",
+                    "max_price": {
+                        "origin": 3990,
+                        "integer": "39",
+                        "decimal": "9",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": 2,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3730496070145456699",
+                "product_id": "3730474105137398151",
+                "title": "高个子加长美式高街水洗阔腿牛仔裤女2025春季高腰显瘦宽松直筒裤",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/AlUKpTdZ_m_6f4f25aff18a7539d300c6eae85f8503_sx_127304_www800-800",
+                "stock_num": 59602,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "7820",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 59602,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "170857133",
+                "tag_list": [
+                    {
+                        "type": 7
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 5980,
+                        "integer": "59",
+                        "decimal": "8",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 5980,
+                        "integer": "59",
+                        "decimal": "8",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3711855145873765081",
+                "product_id": "3711852649499460065",
+                "title": "Moses Queen/魔西女王美式双拉链立领外套抗条掐腰显瘦上衣女",
+                "cover": "https://p9-aio.ecombdimg.com/obj/ecom-shop-material/jpeg_m_a6b0fe765d8252a6733c6e1b72a3a6a6_sx_394629_www800-800",
+                "stock_num": 2282937,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "62302",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 2282937,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "134778947",
+                "tag_list": [
+                    {
+                        "type": 18
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 3690,
+                        "integer": "36",
+                        "decimal": "9",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 3690,
+                        "integer": "36",
+                        "decimal": "9",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": 2,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3685860917867902822",
+                "product_id": "3683528727607771625",
+                "title": "美式复古高街牛仔短裤女夏季薄款辣妹高腰修身显瘦做旧a字热裤子",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/AlUKpTdZ_m_6ef4709270e54d299bfd20a1aade05ae_sx_173537_www800-800",
+                "stock_num": 48402,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "2822",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 48402,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "170857133",
+                "tag_list": [
+                    {
+                        "type": 7
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 3980,
+                        "integer": "39",
+                        "decimal": "8",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 3980,
+                        "integer": "39",
+                        "decimal": "8",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": true,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3734133035927488347",
+                "product_id": "3734127924136247759",
+                "title": "高个子加长版美式复古微喇牛仔裤女春季高腰显瘦不贴腿拖地阔腿裤",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/AlUKpTdZ_m_d01ca48a412f43c2fbf4c37f5066093d_sx_120295_www800-800",
+                "stock_num": 137150,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "7708",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 137150,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "170857133",
+                "tag_list": [
+                    {
+                        "type": 7
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 4980,
+                        "integer": "49",
+                        "decimal": "8",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 4980,
+                        "integer": "49",
+                        "decimal": "8",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3688160498446170003",
+                "product_id": "3687773660615147936",
+                "title": "正肩辣妹修身显瘦短袖t恤女美式甜辣风微胖mm圆领印花字母上衣夏 ",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/IQflIqBr_m_edb67235b701d16d9f4d2e4352f48488_sx_86197_www800-800",
+                "stock_num": 1197889,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "3233",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 1197889,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "104654018",
+                "tag_list": [
+                    {
+                        "type": 7
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 2680,
+                        "integer": "26",
+                        "decimal": "8",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 2680,
+                        "integer": "26",
+                        "decimal": "8",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3737699154965692804",
+                "product_id": "3737696779848777770",
+                "title": "夏季早秋百搭时常绑带防罩衫上衣女小众薄款设计感微透黑色上衣",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/png_m_ea95cda3f5b62106eb6e59788db1a507_sx_1120752_www1170-1170",
+                "stock_num": 239080376,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "6625",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 239080376,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "177386709",
+                "tag_list": [
+                    {
+                        "type": 7
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 1499,
+                        "integer": "14",
+                        "decimal": "99",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 1999,
+                        "integer": "19",
+                        "decimal": "99",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3735407708426338441",
+                "product_id": "3735406939476197532",
+                "title": "2025夏季宽松洋气辣妹大V领设计款修身显瘦纯色百搭款+【短袖U领】",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/png_m_0a96e678e96e473d5ab4e7a2bb6e9161_sx_1318536_www1170-1170",
+                "stock_num": 316500409,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "8896#",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 316500409,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "169086645",
+                "tag_list": [
+                    {
+                        "type": 7
+                    },
+                    {
+                        "type": 10,
+                        "logistics_tag_info": {
+                            "limited_region": {
+                                "香港特别行政区": [
+                                    "全部限售"
+                                ],
+                                "澳门特别行政区": [
+                                    "全部限售"
+                                ],
+                                "西藏自治区": [
+                                    "山南市",
+                                    "拉萨市",
+                                    "昌都市"
+                                ],
+                                "新疆维吾尔自治区": [
+                                    "五家渠市",
+                                    "伊犁哈萨克自治州",
+                                    "克孜勒苏柯尔克孜自治州",
+                                    "克拉玛依市",
+                                    "北屯市",
+                                    "博尔塔拉蒙古自治州",
+                                    "双河市",
+                                    "可克达拉市",
+                                    "吐鲁番市",
+                                    "和田地区",
+                                    "哈密市",
+                                    "喀什地区",
+                                    "图木舒克市",
+                                    "塔城地区",
+                                    "巴音郭楞蒙古自治州",
+                                    "新星市",
+                                    "昆玉市",
+                                    "昌吉回族自治州",
+                                    "石河子市",
+                                    "胡杨河市",
+                                    "铁门关市",
+                                    "阿克苏地区",
+                                    "阿勒泰地区",
+                                    "阿拉尔市"
+                                ],
+                                "四川省": [
+                                    "甘孜藏族自治州",
+                                    "阿坝藏族羌族自治州"
+                                ],
+                                "云南省": [
+                                    "西双版纳傣族自治州"
+                                ],
+                                "台湾省": [
+                                    "全部限售"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "price_desc": {
+                    "min_price": {
+                        "origin": 1490,
+                        "integer": "14",
+                        "decimal": "9",
+                        "suffix": ""
+                    },
+                    "price_text": "券后价",
+                    "max_price": {
+                        "origin": 2699,
+                        "integer": "26",
+                        "decimal": "99",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            },
+            {
+                "promotion_id": "3726881879710903803",
+                "product_id": "3726879655614087419",
+                "title": "Moses Queen/魔西女王美式复古假两件长袖T恤拼接撞色辣妹上衣",
+                "cover": "https://p3-aio.ecombdimg.com/obj/ecom-shop-material/jpeg_m_7b2d3cc548d4a2575e6a9b8cbc3f6047_sx_351291_www800-800",
+                "stock_num": 941641,
+                "status": 2,
+                "has_size_chart": true,
+                "art_no": "62842",
+                "warm_up": false,
+                "is_kol_exclusive_channel_product": false,
+                "channel_product_type": 3,
+                "channel_stock_use_mode": 0,
+                "channel_info": {
+                    "channel_type": 0,
+                    "channel_id": 0
+                },
+                "on_shelf_info": {
+                    "can_show": false
+                },
+                "stock_info": {
+                    "stock_num": 941641,
+                    "can_show": true
+                },
+                "platform_label": "小店",
+                "item_type": 4,
+                "shop_id": "134778947",
+                "price_desc": {
+                    "min_price": {
+                        "origin": 2699,
+                        "integer": "26",
+                        "decimal": "99",
+                        "suffix": ""
+                    },
+                    "price_text": "售价",
+                    "max_price": {
+                        "origin": 2899,
+                        "integer": "28",
+                        "decimal": "99",
+                        "suffix": ""
+                    }
+                },
+                "lottery_info": {
+                    "is_lottery": false
+                },
+                "kol_exclusive_info": {
+                    "exclusive_product": false
+                },
+                "exclusive_product_activity_type": 0,
+                "platform_subsidy_price": 0,
+                "can_seckill": false,
+                "campaign_management": false,
+                "in_exclusive_channel_activity": false,
+                "price_level_info": {
+                    "talent_price_level": {
+                        "price_level": -1,
+                        "price_level_desc": "",
+                        "same_low_product_brief": null
+                    }
+                },
+                "marketing_permission": {
+                    "anchor_coupon_permission": false
+                },
+                "elastic_title": "",
+                "has_prompt": false,
+                "in_prompt": false,
+                "has_recom_prompt": false,
+                "online_room_operating_data": {
+                    "pay_amt": 0,
+                    "pay_combo_cnt": 0,
+                    "show_ucnt": 0,
+                    "click_ucnt": 0,
+                    "create_ucnt": 0,
+                    "pay_ucnt": 0
+                },
+                "stock_management": false,
+                "product_card_info": {
+                    "can_set_product_card": false
+                }
+            }
+        ],
+        "room_info": {
+            "on_shelf_combination_num": 0,
+            "cart_category_list": [
+                {
+                    "id": "0",
+                    "name": "全部",
+                    "type": 1
+                },
+                {
+                    "id": "7553",
+                    "name": "女装",
+                    "type": 4
+                }
+            ]
+        },
+        "room_id": "0",
+        "fetch_interval_config": {
+            "promotion_info_fetch_interval": {
+                "10": [
+                    7,
+                    9,
+                    10,
+                    12,
+                    14,
+                    301,
+                    410,
+                    411,
+                    412,
+                    502,
+                    503,
+                    507
+                ],
+                "30": [
+                    15,
+                    414
+                ],
+                "2": [
+                    5,
+                    6,
+                    506,
+                    17
+                ],
+                "-1": [
+                    101,
+                    102,
+                    201,
+                    413,
+                    415,
+                    416,
+                    504,
+                    505,
+                    508
+                ],
+                "60": [
+                    3,
+                    4,
+                    8,
+                    13,
+                    409,
+                    501
+                ],
+                "300": [
+                    16
+                ],
+                "4": [
+                    11,
+                    401,
+                    402,
+                    403,
+                    404,
+                    405
+                ],
+                "6": [
+                    406,
+                    407,
+                    408
+                ]
+            }
+        }
+    }
+}
