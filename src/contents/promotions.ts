@@ -1,15 +1,6 @@
 import { log } from "console"
 import type { PlasmoCSConfig } from "plasmo"
 
-declare global {
-  interface Window {
-    sdkGlue?: {
-      version?: string;
-      initTime?: number;
-    };
-  }
-}
-
 interface CustomXHR extends XMLHttpRequest {
   _originalUrl?: string;
   _requestBody?: any;
@@ -56,6 +47,7 @@ function interceptAjax() {
           
           // 仅在匹配目标URL时记录
           if (interceptUrls.some(i => i.pattern.test(finalUrl))) {
+            sendResponseBack('PROMOTIONS_V2', event);
             log("检测到目标请求", {
               status: xhr.status,
               method: xhr._method,
@@ -79,6 +71,7 @@ function interceptAjax() {
 }
 
 function sendResponseBack(type: string, event) {
+  log(event.target.responseText)
   window.dispatchEvent(
     new CustomEvent("FROM_INJECTED", {
       detail: {type, responseText: event.target.responseText}
@@ -86,39 +79,17 @@ function sendResponseBack(type: string, event) {
   )
 }
 
-// console.log('intercepted')
-// alert('intercepted')
 
-// 初始化拦截器并添加保护机制
-let isInterceptorInstalled = false;
-
+// 初始化拦截器
 function initInterceptor() {
-  if (!isInterceptorInstalled) {
-    // 防御性检查：确保原始方法未被修改
-    if (XMLHttpRequest.prototype.open === originOpen) {
-      interceptAjax();
-      isInterceptorInstalled = true;
-      log("XHR拦截器安装成功", {
-        timestamp: performance.now(),
-        navigationStart: performance.timing.navigationStart,
-        sdkState: window.sdkGlue
-      });
-      
-      // 添加定时健康检查
-      setInterval(() => {
-        if (XMLHttpRequest.prototype.open !== openInterceptor) {
-          log("拦截器被覆盖！正在重新安装...");
-          interceptAjax();
-        }
-      }, 1000);
-    } else {
-      log("检测到已有拦截器存在，安装中止", {
-        existingOpen: XMLHttpRequest.prototype.open.toString()
-      });
-    }
-  }
+  // 简化后的安装逻辑
+  interceptAjax();
+  log("XHR拦截器安装成功", {
+    timestamp: performance.now(),
+    navigationStart: performance.timing.navigationStart
+  });
 }
 
 // 在多个阶段尝试初始化
-initInterceptor();
+// initInterceptor();
 document.addEventListener('DOMContentLoaded', initInterceptor);
