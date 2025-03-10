@@ -61,7 +61,7 @@ function interceptAjax() {
 
 function sendResponseBack(type: string, event) {
   const responseText = event.target.responseText
-  log(responseText)
+  // log("receive response", JSON.parse(responseText).data)
 
   try {
     const data = JSON.parse(responseText)
