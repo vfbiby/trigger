@@ -1,6 +1,5 @@
 import { log } from "console"
 import type { PlasmoCSConfig } from "plasmo"
-import { Storage } from "@plasmohq/storage"
 
 interface CustomXHR extends XMLHttpRequest {
   _originalUrl?: string
@@ -11,12 +10,9 @@ interface CustomXHR extends XMLHttpRequest {
 
 export const config: PlasmoCSConfig = {
   matches: ["*://buyin.jinritemai.com/*"],
-  // run_at: "document_start",
-  // world: "MAIN",
-  // all_frames: true
+  run_at: "document_start",
+  world: "MAIN",
 }
-
-const originOpen = XMLHttpRequest.prototype.open
 
 const interceptUrls = [
   {
@@ -25,9 +21,6 @@ const interceptUrls = [
     type: "PROMOTIONS_V2"
   }
 ]
-
-// 提升openInterceptor到模块作用域并添加类型声明
-let openInterceptor: (this: XMLHttpRequest, method: string, url: string) => void
 
 // 最小化安全拦截方案
 function interceptAjax() {
@@ -64,11 +57,6 @@ function interceptAjax() {
     return sendResult
   }
 
-  // 保持原型方法可配置性
-  Object.defineProperty(XMLHttpRequest.prototype, "open", {
-    configurable: true,
-    writable: true
-  })
 }
 
 function sendResponseBack(type: string, event) {
@@ -110,6 +98,4 @@ function initInterceptor() {
   })
 }
 
-// 在多个阶段尝试初始化
-// initInterceptor();
 document.addEventListener("DOMContentLoaded", initInterceptor)
