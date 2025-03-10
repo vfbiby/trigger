@@ -13,23 +13,26 @@ export interface Promotion {
 
 export const usePromotionsStorage = () => {
   const [promotions, setPromotions] = useState<Promotion[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     try {
-      const storedData = localStorage.getItem("promotions_v2");
-      if (storedData) {
-        const { data, expires } = JSON.parse(storedData);
-        
+      chrome.storage.local.get("promotions", (result) => {
+        // console.log("storedData", storedData)
+
+        const { data, expires } = result.promotions
+        // console.log("data", data)
+
         // 检查数据是否过期
         if (Date.now() > expires) {
-          localStorage.removeItem("promotions_v2");
-          setPromotions([]);
-          return;
+          chrome.storage.local.set({ promotions: [] }).then((r) => {
+            setPromotions([])
+          })
+          return
         }
-        
-        setPromotions(data?.promotions || []);
-      }
+
+        setPromotions(data?.promotions || [])
+      })
     } catch (error) {
       console.error("读取localStorage数据失败:", error)
     } finally {

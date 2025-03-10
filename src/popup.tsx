@@ -22,6 +22,10 @@ const PromotionList = () => {
           key={promotion.promotion_id}
           className="flex items-center p-4 gap-4">
           <img
+            style={{
+              width: '120px',
+              height: '120px',
+            }}
             src={promotion.cover}
             alt={promotion.title}
             className="w-20 h-20 object-cover rounded"
