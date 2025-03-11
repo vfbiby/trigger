@@ -46,7 +46,7 @@ function interceptAjax() {
 
           // 仅在匹配目标URL时记录
           if (interceptUrls.some((i) => i.pattern.test(finalUrl))) {
-            sendResponseBack("PROMOTIONS", event)
+            sendResponseBack("PROMOTIONS", event, finalUrl)
             log("检测到目标请求", {
               status: xhr.status,
               method: xhr._method,
@@ -64,7 +64,7 @@ function interceptAjax() {
 
 }
 
-function sendResponseBack(type: string, event) {
+function sendResponseBack(type: string, event, finalUrl) {
   const responseText = event.target.responseText
   // log("receive response", JSON.parse(responseText).data)
 
@@ -84,7 +84,7 @@ function sendResponseBack(type: string, event) {
             type,
             responseText,
             data: storageData,
-            url: event.target._url
+            url: finalUrl
           }
         })
       )
