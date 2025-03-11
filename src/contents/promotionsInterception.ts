@@ -18,7 +18,12 @@ const interceptUrls = [
   {
     // 精确匹配包含promotions_v2的API路径，忽略查询参数和域名
     pattern: /\/api\/anchor\/livepc\/promotions_v2[^/]*$/i,
-    type: "PROMOTIONS_V2"
+    type: "PROMOTIONS"
+  },
+  {
+    // 精确匹配包含promotions_v2的API路径，忽略查询参数和域名
+    pattern: /\/api\/anchor\/livepc\/setcurrent[^/]*$/i,
+    type: "SET_CURRENT"
   }
 ]
 
@@ -41,7 +46,7 @@ function interceptAjax() {
 
           // 仅在匹配目标URL时记录
           if (interceptUrls.some((i) => i.pattern.test(finalUrl))) {
-            sendResponseBack("PROMOTIONS_V2", event)
+            sendResponseBack("PROMOTIONS", event)
             log("检测到目标请求", {
               status: xhr.status,
               method: xhr._method,
@@ -78,7 +83,8 @@ function sendResponseBack(type: string, event) {
           detail: {
             type,
             responseText,
-            data: storageData
+            data: storageData,
+            url: event.target._url
           }
         })
       )
