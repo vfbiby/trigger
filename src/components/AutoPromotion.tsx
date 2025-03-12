@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 
-import { sendToBackground } from "@plasmohq/messaging"
-
 import type { Promotion } from "../hooks/usePromotionsStorage"
 
 interface AutoPromotionProps {
@@ -19,9 +17,9 @@ interface StrategyOption {
 const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
   const [selectedPromotions, setSelectedPromotions] = useState<Promotion[]>([])
   const [strategy, setStrategy] = useState<PromotionStrategy>("continuous")
-  const [intervalSeconds, setIntervalSeconds] = useState<number>(30)
-  const [showSeconds, setShowSeconds] = useState<number>(30)
-  const [hideSeconds, setHideSeconds] = useState<number>(30)
+  const [intervalSeconds, setIntervalSeconds] = useState<number>(5)
+  const [showSeconds, setShowSeconds] = useState<number>(8)
+  const [hideSeconds, setHideSeconds] = useState<number>(5)
   const [isRunning, setIsRunning] = useState<boolean>(false)
   const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null)
 
@@ -223,7 +221,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
                   <input
                     type="range"
                     min="5"
-                    max="60"
+                    max="20"
                     value={intervalSeconds}
                     onChange={(e) =>
                       setIntervalSeconds(parseInt(e.target.value))
@@ -240,7 +238,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
                     <input
                       type="range"
                       min="5"
-                      max="60"
+                      max="20"
                       value={showSeconds}
                       onChange={(e) => setShowSeconds(parseInt(e.target.value))}
                     />
@@ -251,7 +249,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
                     <input
                       type="range"
                       min="5"
-                      max="60"
+                      max="20"
                       value={hideSeconds}
                       onChange={(e) => setHideSeconds(parseInt(e.target.value))}
                     />
