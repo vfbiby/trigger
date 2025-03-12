@@ -2,8 +2,15 @@ import { useState } from "react"
 
 import { sendToBackground } from "@plasmohq/messaging"
 
-import { usePromotionsStorage } from "./hooks/usePromotionsStorage"
+import AutoPromotion from "./components/AutoPromotion"
+import EnhancedPromotionList from "./components/EnhancedPromotionList"
+import {
+  usePromotionsStorage,
+  type Promotion
+} from "./hooks/usePromotionsStorage"
+
 import "./popup.css"
+import "./components/AutoPromotion.css"
 
 const PromotionList = () => {
   const { promotions, loading } = usePromotionsStorage()
@@ -19,9 +26,7 @@ const PromotionList = () => {
   return (
     <div className="promotion-list">
       {promotions.map((promotion) => (
-        <div
-          key={promotion.promotion_id}
-          className="promotion-item">
+        <div key={promotion.promotion_id} className="promotion-item">
           <img
             src={promotion.cover}
             alt={promotion.title}
@@ -40,19 +45,36 @@ const PromotionList = () => {
 }
 
 function IndexPopup() {
-  const [greeting, setGreeting] = useState("")
+  const { promotions, loading } = usePromotionsStorage()
+  const [selectedPromotions, setSelectedPromotions] = useState<Promotion[]>([])
 
-  async function handlePing() {
-    const resp = await sendToBackground({
-      name: "ping"
-    });
-    setGreeting(resp.promotions)
+  // 添加或移除商品
+  const handleTogglePromotion = (promotion: Promotion) => {
+    setSelectedPromotions((prev) => {
+      const exists = prev.some((p) => p.promotion_id === promotion.promotion_id)
+      if (exists) {
+        return prev.filter((p) => p.promotion_id !== promotion.promotion_id)
+      } else {
+        return [...prev, promotion]
+      }
+    })
   }
 
   return (
     <div className="popup-container">
-      <h1 className="page-title">当前促销商品</h1>
-      <PromotionList />
+      <div className="sticky-header">
+        <h1 className="page-title">当前促销商品</h1>
+        <AutoPromotion promotions={selectedPromotions} />
+      </div>
+      {loading ? (
+        <div className="loading-text">加载中...</div>
+      ) : (
+        <EnhancedPromotionList
+          promotions={promotions}
+          selectedPromotions={selectedPromotions}
+          onTogglePromotion={handleTogglePromotion}
+        />
+      )}
     </div>
   )
 }
