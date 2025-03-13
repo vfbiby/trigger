@@ -62,8 +62,8 @@ function IndexPopup() {
 
   return (
     <div className="popup-container">
-      <div className="sticky-header">
-        <h1 className="page-title">当前促销商品</h1>
+      <h1 className="page-title">当前促销商品</h1>
+      <div className="selected-promotions-sticky">
         <AutoPromotion promotions={selectedPromotions} />
       </div>
       {loading ? (

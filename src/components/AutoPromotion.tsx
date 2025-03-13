@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 
 import type { Promotion } from "../hooks/usePromotionsStorage"
 
@@ -15,8 +15,7 @@ interface StrategyOption {
 }
 
 const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
-  const [selectedPromotions, setSelectedPromotions] = useState<Promotion[]>([])
-  const [strategy, setStrategy] = useState<PromotionStrategy>("continuous")
+  const [strategy, setStrategy] = useState<PromotionStrategy>("alternating")
   const [intervalSeconds, setIntervalSeconds] = useState<number>(5)
   const [showSeconds, setShowSeconds] = useState<number>(8)
   const [hideSeconds, setHideSeconds] = useState<number>(5)
@@ -24,6 +23,11 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
   const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null)
 
   const strategyOptions: StrategyOption[] = [
+    {
+      value: "alternating",
+      label: "交替弹出",
+      description: `弹出${showSeconds}秒，消失${hideSeconds}秒`
+    },
     {
       value: "continuous",
       label: "一直弹",
@@ -33,11 +37,6 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
       value: "interval",
       label: "定时弹出",
       description: `每${intervalSeconds}秒弹一次`
-    },
-    {
-      value: "alternating",
-      label: "交替弹出",
-      description: `弹出${showSeconds}秒，消失${hideSeconds}秒`
     }
   ]
 
@@ -52,24 +51,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
     })
   }, [])
 
-  // 添加或移除商品
-  const togglePromotion = (promotion: Promotion) => {
-    setSelectedPromotions((prev) => {
-      const exists = prev.some((p) => p.promotion_id === promotion.promotion_id)
-      if (exists) {
-        return prev.filter((p) => p.promotion_id !== promotion.promotion_id)
-      } else {
-        return [...prev, promotion]
-      }
-    })
-  }
-
-  // 检查商品是否已选中
-  const isPromotionSelected = (promotion: Promotion) => {
-    return selectedPromotions.some(
-      (p) => p.promotion_id === promotion.promotion_id
-    )
-  }
+  // 不再需要togglePromotion和isPromotionSelected方法，因为我们直接使用传入的promotions
 
   // 发送弹讲解请求
   const sendPromotionRequest = async (promotion: Promotion) => {
@@ -103,7 +85,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
 
   // 根据策略执行弹讲解
   const executePromotionStrategy = () => {
-    if (selectedPromotions.length === 0) {
+    if (promotions.length === 0) {
       console.warn("没有选中的商品")
       return
     }
@@ -112,13 +94,13 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
     let isVisible = true
 
     const runPromotion = () => {
-      if (selectedPromotions.length === 0) return
+      if (promotions.length === 0) return
 
-      const promotion = selectedPromotions[currentIndex]
+      const promotion = promotions[currentIndex]
       sendPromotionRequest(promotion)
 
       // 更新索引，循环选择下一个商品
-      currentIndex = (currentIndex + 1) % selectedPromotions.length
+      currentIndex = (currentIndex + 1) % promotions.length
     }
 
     // 清除之前的定时器
@@ -153,7 +135,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
             if (isVisible) {
               // 当前是显示状态，需要隐藏
               // 发送取消请求
-              const promotion = selectedPromotions[currentIndex]
+              const promotion = promotions[currentIndex]
               const formData = new FormData()
               formData.append("promotion_id", promotion.promotion_id)
               formData.append("cancel", "true")
@@ -274,29 +256,24 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
               <button
                 className="start-button"
                 onClick={executePromotionStrategy}
-                disabled={selectedPromotions.length === 0}>
+                disabled={promotions.length === 0}>
                 开始弹讲解
               </button>
             )}
           </div>
         </div>
 
-        {selectedPromotions.length === 0 ? (
+        {promotions.length === 0 ? (
           <div className="empty-selected">请从下方选择要弹讲解的商品</div>
         ) : (
           <div className="selected-items">
-            {selectedPromotions.map((promotion) => (
+            {promotions.map((promotion) => (
               <div key={promotion.promotion_id} className="selected-item">
                 <img
                   src={promotion.cover}
                   alt={promotion.title}
                   className="selected-item-image"
                 />
-                <button
-                  className="remove-button"
-                  onClick={() => togglePromotion(promotion)}>
-                  ×
-                </button>
               </div>
             ))}
           </div>
