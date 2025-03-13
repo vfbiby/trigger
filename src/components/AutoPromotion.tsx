@@ -21,6 +21,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
   const [hideSeconds, setHideSeconds] = useState<number>(5)
   const [isRunning, setIsRunning] = useState<boolean>(false)
   const [timerId, setTimerId] = useState<NodeJS.Timeout | null>(null)
+  const [strategyExpanded, setStrategyExpanded] = useState<boolean>(false)
 
   const strategyOptions: StrategyOption[] = [
     {
@@ -172,6 +173,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
   // 更新策略参数
   const handleStrategyChange = (value: PromotionStrategy) => {
     setStrategy(value)
+    setStrategyExpanded(false) // 选择策略后自动折叠面板
     if (isRunning) {
       stopPromotion()
       // 可以选择是否立即以新策略重新开始
@@ -181,8 +183,19 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
   return (
     <div className="auto-promotion-container">
       <div className="strategy-section">
-        <h3 className="section-title">弹讲解策略</h3>
-        <div className="strategy-options">
+        <h3 
+          className={`section-title ${!strategyExpanded ? 'collapsed' : ''}`}
+          onClick={() => setStrategyExpanded(!strategyExpanded)}
+        >
+          弹讲解策略
+          {!strategyExpanded && (
+            <span className="current-strategy">
+              {strategyOptions.find(option => option.value === strategy)?.label}
+              <span> - {strategyOptions.find(option => option.value === strategy)?.description}</span>
+            </span>
+          )}
+        </h3>
+        <div className={`strategy-options ${strategyExpanded ? 'expanded' : ''}`}>
           {strategyOptions.map((option) => (
             <div
               key={option.value}

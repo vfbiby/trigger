@@ -43,6 +43,8 @@
 .popup-container {
   width: 400px;
   padding: 16px;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .search-input {
@@ -62,5 +64,6 @@
   top: 0;
   background-color: white;
   z-index: 10;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }
