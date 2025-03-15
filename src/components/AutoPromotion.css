@@ -295,8 +295,6 @@
 
 /* 固定头部 - 只应用于已选商品部分 */
 .sticky-header {
-  /*position: sticky;*/
-  top: 0;
   background-color: white;
   z-index: 10;
   padding-bottom: 0.5rem;
