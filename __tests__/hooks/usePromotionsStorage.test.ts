@@ -13,7 +13,7 @@ describe('usePromotionsStorage Hook', () => {
     const { result } = renderHook(() => usePromotionsStorage())
     
     // Mock chrome storage
-    chrome.storage.local.set({
+    await chrome.storage.local.set({
       promotions: {
         data: {
           promotions: [{

@@ -16,44 +16,60 @@ export const usePromotionsStorage = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    const handleStorageChange = (changes: Record<string, chrome.storage.StorageChange>, areaName: string) => {
+      if (areaName === 'local' && changes.promotions) {
+        const newValue = changes.promotions.newValue
+        if (!newValue) {
+          setPromotions([])
+          return
+        }
+        
+        const { data, expires } = newValue
+        if (Date.now() > expires) {
+          setPromotions([])
+          return
+        }
+        setPromotions(data?.promotions || [])
+      }
+    }
+
     try {
+      // 初始化获取数据
       chrome.storage.local.get("promotions", (result) => {
-        // console.log("storedData", storedData)
-
         const { data, expires } = result.promotions || {}
-        // console.log("data", data)
-
-        // 检查数据是否过期
         if (Date.now() > expires) {
           chrome.storage.local.set({ promotions: [] }).then((r) => {
             setPromotions([])
           })
           return
         }
-
         setPromotions(data?.promotions || [])
       })
+
+      // 添加storage变化监听
+      chrome.storage.onChanged.addListener(handleStorageChange)
     } catch (error) {
       console.error("读取localStorage数据失败:", error)
     } finally {
       setLoading(false)
     }
+
+    // 清理监听
+    return () => {
+      chrome.storage.onChanged.removeListener(handleStorageChange)
+    }
   }, [])
 
   const updatePromotions = async (newPromotions: Promotion[]) => {
-    await chrome.storage.local.set({
+    const storagePromise = chrome.storage.local.set({
       promotions: {
         data: { promotions: newPromotions },
         expires: Date.now() + 1000 * 60 * 60 // 1 hour
       }
     })
-    // 立即更新本地状态
+    // 等待storage设置完成后再更新本地状态
+    await storagePromise
     setPromotions(newPromotions)
-    // 从存储中重新获取数据以确保一致性
-    chrome.storage.local.get("promotions", (result) => {
-      const { data } = result.promotions || {}
-      setPromotions(data?.promotions || [])
-    })
   }
 
   return { promotions, loading, updatePromotions }
