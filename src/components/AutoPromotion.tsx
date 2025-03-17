@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import type { Promotion } from "../hooks/usePromotionsStorage"
+import type { Promotion } from "../hooks/usePromotionsStorage.ts"
 
 interface AutoPromotionProps {
   promotions: Promotion[]
@@ -181,7 +181,8 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
   }
 
   return (
-    <div className="auto-promotion-container">
+    <div className="auto-promotion-container" data-testid="auto-promotion">
+      {!liveParams && <div>Loading...</div>}
       <div className="strategy-section">
         <h3 
           className={`section-title ${!strategyExpanded ? 'collapsed' : ''}`}
@@ -277,7 +278,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
         </div>
 
         {promotions.length === 0 ? (
-          <div className="empty-selected">请从下方选择要弹讲解的商品</div>
+          <div className="empty-selected" data-testid="no-products-error">没有选中的商品</div>
         ) : (
           <div className="selected-items">
             {promotions.map((promotion) => (

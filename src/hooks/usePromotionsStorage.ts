@@ -20,7 +20,7 @@ export const usePromotionsStorage = () => {
       chrome.storage.local.get("promotions", (result) => {
         // console.log("storedData", storedData)
 
-        const { data, expires } = result.promotions
+        const { data, expires } = result.promotions || {}
         // console.log("data", data)
 
         // 检查数据是否过期
@@ -40,5 +40,21 @@ export const usePromotionsStorage = () => {
     }
   }, [])
 
-  return { promotions, loading }
+  const updatePromotions = async (newPromotions: Promotion[]) => {
+    await chrome.storage.local.set({
+      promotions: {
+        data: { promotions: newPromotions },
+        expires: Date.now() + 1000 * 60 * 60 // 1 hour
+      }
+    })
+    // 立即更新本地状态
+    setPromotions(newPromotions)
+    // 从存储中重新获取数据以确保一致性
+    chrome.storage.local.get("promotions", (result) => {
+      const { data } = result.promotions || {}
+      setPromotions(data?.promotions || [])
+    })
+  }
+
+  return { promotions, loading, updatePromotions }
 }
