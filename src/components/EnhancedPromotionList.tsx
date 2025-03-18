@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-import type { Promotion } from "../hooks/usePromotionsStorage"
+import type { Promotion } from "~src/hooks/usePromotionsStorage.js"
 
 interface EnhancedPromotionListProps {
   promotions: Promotion[]
