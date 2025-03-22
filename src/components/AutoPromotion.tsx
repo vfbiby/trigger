@@ -92,16 +92,18 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
     }
 
     let currentIndex = 0
-    let isVisible = true
+    const controller = new AbortController()
 
-    const runPromotion = () => {
+    const runPromotion = async () => {
       if (promotions.length === 0) return
-
       const promotion = promotions[currentIndex]
-      sendPromotionRequest(promotion)
-
-      // 更新索引，循环选择下一个商品
-      currentIndex = (currentIndex + 1) % promotions.length
+      
+      try {
+        await sendPromotionRequest(promotion)
+        currentIndex = (currentIndex + 1) % promotions.length
+      } catch (error) {
+        console.error('弹讲解请求失败:', error)
+      }
     }
 
     // 清除之前的定时器
@@ -113,8 +115,40 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
     // 根据不同策略设置定时器
     switch (strategy) {
       case "continuous":
-        // 一直弹：初始弹出，然后不做任何操作
+        // 持续弹出：每5秒取消后重新弹出
         runPromotion()
+        const continuousTimer = setInterval(async () => {
+          try {
+            // 发送取消请求
+            const promotion = promotions[currentIndex]
+            const cancelFormData = new FormData()
+            cancelFormData.append("promotion_id", promotion.promotion_id)
+            cancelFormData.append("cancel", "true")
+            
+            // 复用sendPromotionRequest中的URL构造逻辑
+            if (!liveParams) {
+              console.error("缺少必要的liveParams参数")
+              return
+            }
+            
+            const url = `https://buyin.jinritemai.com/api/anchor/livepc/setcurrent?verifyFp=${liveParams.verifyFp}&fp=${liveParams.fp}&msToken=${liveParams.msToken}&a_bogus=${liveParams.a_bogus}`
+            
+            // 等待取消请求完成
+            await fetch(url, {
+              method: "POST",
+              body: cancelFormData,
+              headers: {
+                "Content-Type": "multipart/form-data"
+              }
+            })
+
+            // 等待重新弹出请求
+            await runPromotion()
+          } catch (error) {
+            console.error("连续弹讲解策略执行出错:", error)
+          }
+        }, 5000) // 5秒间隔
+        setTimerId(continuousTimer)
         break
 
       case "interval":
