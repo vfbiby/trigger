@@ -72,7 +72,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
         method: "POST",
         body: formData,
         headers: {
-          // 可能需要添加其他必要的headers
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
         }
       })
 
@@ -92,6 +92,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
     }
 
     let currentIndex = 0
+    let isVisible = true
     const controller = new AbortController()
 
     const runPromotion = async () => {
