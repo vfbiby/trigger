@@ -15,7 +15,7 @@ interface StrategyOption {
 }
 
 const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
-  const [strategy, setStrategy] = useState<PromotionStrategy>("alternating")
+  const [strategy, setStrategy] = useState<PromotionStrategy>("continuous")
   const [intervalSeconds, setIntervalSeconds] = useState<number>(5)
   const [showSeconds, setShowSeconds] = useState<number>(8)
   const [hideSeconds, setHideSeconds] = useState<number>(5)
