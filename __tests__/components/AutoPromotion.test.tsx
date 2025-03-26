@@ -27,8 +27,8 @@ describe("AutoPromotion Component", () => {
   })
 
   it("continuous策略应每5秒取消并重新弹讲解", async () => {
-    // 使用vitest的fake timers替代手动mock
-    vi.useFakeTimers()
+    // 增加测试超时时间到5秒
+    vi.useFakeTimers({ shouldAdvanceTime: true })
 
     const promotions: Promotion[] = [
       {
@@ -86,13 +86,13 @@ describe("AutoPromotion Component", () => {
     // screen.debug()
     console.log(startButton.outerHTML, '----------------')
 
-    await act(async () => {
-      await user.click(startButton);
-      // 确保所有微任务完成
-      await Promise.resolve();
-    });
+    // await act(async () => {
+    //   await user.click(startButton);
+    //   // 确保所有微任务完成
+    //   await Promise.resolve();
+    // });
 
-    // await user.click(startButton)
+    await user.click(startButton)
 
     // 确保初始请求已完成
     // await Promise.resolve()
