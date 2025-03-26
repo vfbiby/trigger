@@ -78,46 +78,30 @@ describe("AutoPromotion Component", () => {
 
     // 选择continuous策略
     const strategyOptions = screen.getAllByRole("radio")
-    // await user.click(strategyOptions[1])
+    await user.click(strategyOptions[1])
 
     // // 启动策略
     const startButton = screen.getByRole("button", { name: /开始弹讲解/ })
-    expect(startButton).toBeInTheDocument()
-    // screen.debug()
-    console.log(startButton.outerHTML, '----------------')
-
-    // await act(async () => {
-    //   await user.click(startButton);
-    //   // 确保所有微任务完成
-    //   await Promise.resolve();
-    // });
 
     await user.click(startButton)
 
-    // 确保初始请求已完成
-    // await Promise.resolve()
+    expect(fetchMock).toHaveBeenCalledTimes(1)
 
-    // expect(fetchMock).toHaveBeenCalledTimes(1)
-    //
-    // // 重置mock计数器以便于后续验证
-    // fetchMock.mockClear()
-    //
-    // // 使用act包裹定时器操作，确保React状态更新
-    // await act(async () => {
-    //   // 推进时间到第一次间隔触发（5秒）
-    //   vi.advanceTimersByTime(5000)
-    // })
-    //
-    // // 等待所有微任务完成
-    // await Promise.resolve()
-    // await Promise.resolve()
-    //
-    // // 验证fetch被调用了2次（取消请求 + 重新请求）
-    // expect(fetchMock).toHaveBeenCalledTimes(2)
+    // 重置mock计数器以便于后续验证
+    fetchMock.mockClear()
+
+    // 使用act包裹定时器操作，确保React状态更新
+    await act(async () => {
+      // 推进时间到第一次间隔触发（5秒）
+      vi.advanceTimersByTime(5000)
+    })
+
+    // 验证fetch被调用了2次（取消请求 + 重新请求）
+    expect(fetchMock).toHaveBeenCalledTimes(2)
 
     // 恢复真实定时器
     vi.useRealTimers()
-  }, 1500) // 增加测试超时时间到1.5秒
+  }) // 增加测试超时时间到1.5秒
 })
 
 describe("测试延迟函数示例", () => {
