@@ -1,12 +1,20 @@
-import { act, render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import React from "react"
-import { describe, expect, it, vi } from "vitest"
+import { act, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import React from "react";
+import { describe, expect, it, vi } from "vitest";
 
-import "@testing-library/jest-dom"
 
-import AutoPromotion from "../../src/components/AutoPromotion.tsx"
-import type { Promotion } from "../../src/hooks/usePromotionsStorage.ts"
+
+
+
+
+import "@testing-library/jest-dom";
+
+
+
+import AutoPromotion from "../../src/components/AutoPromotion.tsx";
+import type { Promotion } from "../../src/hooks/usePromotionsStorage.ts";
+
 
 describe("AutoPromotion Component", () => {
   it("should render without crashing", () => {
@@ -102,6 +110,83 @@ describe("AutoPromotion Component", () => {
     // 恢复真实定时器
     vi.useRealTimers()
   }) // 增加测试超时时间到1.5秒
+
+  it("interval策略应在指定间隔后重新弹讲解", async () => {
+    const intervalSeconds = 5; // 测试5秒间隔
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+
+    const promotions: Promotion[] = [{
+      promotion_id: "123",
+      title: "测试商品",
+      cover: "test.jpg",
+      price_desc: { min_price: { origin: 99 } }
+    }];
+
+    // Mock chrome.storage
+    vi.stubGlobal("chrome", {
+      storage: {
+        local: {
+          get: vi.fn().mockImplementation((keys, callback) => {
+            callback({ liveParams: {
+              verifyFp: "test_verify_fp",
+              fp: "test_fp",
+              msToken: "test_ms_token",
+              a_bogus: "test_a_bogus"
+            }});
+          })
+        }
+      }
+    });
+
+    // Mock fetch
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ success: true })
+    });
+    global.fetch = fetchMock;
+
+    // @ts-ignore
+    const user = userEvent.setup({ delay: null });
+    render(<AutoPromotion promotions={promotions} />);
+
+    // 等待加载完成
+    await waitFor(() => {
+      expect(screen.queryByText(/loading/i)).not.toBeInTheDocument();
+    });
+
+    // 选择interval策略
+    const strategyOptions = screen.getAllByRole("radio");
+    await user.click(strategyOptions[2]); // interval是第三个选项
+
+    // 设置间隔时间为5秒
+    const intervalSlider = screen.getByRole("slider");
+    await user.type(intervalSlider, intervalSeconds.toString());
+
+    // 启动策略
+    const startButton = screen.getByRole("button", { name: /开始弹讲解/ });
+    await user.click(startButton);
+
+    // 验证初始请求
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    fetchMock.mockClear();
+
+    // 推进时间到间隔时间后
+    await act(async () => {
+      vi.advanceTimersByTime(intervalSeconds * 1000);
+    });
+
+    // 验证只发起了新的请求（没有取消请求）
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+    const requestUrl = fetchMock.mock.calls[0][0]
+    const requestOptions = fetchMock.mock.calls[0][1]
+    expect(requestOptions.body).toBeInstanceOf(FormData)
+    // 验证请求URL包含正确的参数
+    console.log(requestUrl)
+    expect(requestUrl).not.toContain('cancel=false')
+
+    // 恢复真实定时器
+    vi.useRealTimers();
+  });
 })
 
 describe("测试延迟函数示例", () => {
