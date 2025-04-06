@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
 
+const PROMOTION_DURATION_MS = 12 * 1000 // 商品讲解固定展示12秒
+
 import type { Promotion } from "../hooks/usePromotionsStorage.ts"
 
 interface AutoPromotionProps {
@@ -93,12 +95,11 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
 
     let currentIndex = 0
     let isVisible = true
-    const controller = new AbortController()
 
     const runPromotion = async () => {
       if (promotions.length === 0) return
       const promotion = promotions[currentIndex]
-      
+
       try {
         await sendPromotionRequest(promotion)
         currentIndex = (currentIndex + 1) % promotions.length
@@ -125,15 +126,15 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
             const cancelFormData = new FormData()
             cancelFormData.append("promotion_id", promotion.promotion_id)
             cancelFormData.append("cancel", "true")
-            
+
             // 复用sendPromotionRequest中的URL构造逻辑
             if (!liveParams) {
               console.error("缺少必要的liveParams参数")
               return
             }
-            
+
             const url = `https://buyin.jinritemai.com/api/anchor/livepc/setcurrent?verifyFp=${liveParams.verifyFp}&fp=${liveParams.fp}&msToken=${liveParams.msToken}&a_bogus=${liveParams.a_bogus}`
-            
+
             // 等待取消请求完成
             await fetch(url, {
               method: "POST",
@@ -153,11 +154,17 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
         break
 
       case "interval":
-        // 定时弹出：每隔指定时间弹一次
+        // 定时弹出：首次立即弹出，12秒后开始计算间隔时间
         runPromotion()
-        const intervalTimer = setInterval(() => {
-          runPromotion()
-        }, intervalSeconds * 1000)
+
+        const intervalTimer = setTimeout(() => {
+          // 12秒后开始计算间隔
+          const timer = setInterval(() => {
+            runPromotion()
+          }, intervalSeconds * 1000)
+          setTimerId(timer)
+        }, PROMOTION_DURATION_MS) // 12秒后开始计算间隔
+
         setTimerId(intervalTimer)
         break
 
@@ -219,7 +226,7 @@ const AutoPromotion: React.FC<AutoPromotionProps> = ({ promotions }) => {
     <div className="auto-promotion-container" data-testid="auto-promotion">
       {!liveParams && <div>Loading...</div>}
       <div className="strategy-section">
-        <h3 
+        <h3
           className={`section-title ${!strategyExpanded ? 'collapsed' : ''}`}
           onClick={() => setStrategyExpanded(!strategyExpanded)}
         >
